@@ -21,6 +21,10 @@ module Rack
           $stderr.puts user
           env['REMOTE_USER'] = user
         end
+      else
+        if !env['REMOTE_USER']
+          return [401, {"WWW-Authenticate" => "Negotiate"}, []]
+        end
       end
 
       @app.call(env)

@@ -1,0 +1,3 @@
+[submodule "rack_dav"]
+	path = rack_dav
+	url = git@github.com:georgi/rack_dav.git
