@@ -22,7 +22,7 @@ module Rack
           env['REMOTE_USER'] = user
         end
       else
-        if !env['REMOTE_USER']
+        if env["REQUEST_METHOD"].upcase != "OPTIONS" && !env['REMOTE_USER']
           return [401, {"WWW-Authenticate" => "Negotiate"}, []]
         end
       end
