@@ -19,11 +19,7 @@ module Rack
         if message.type == 3
           user = Net::NTLM::EncodeUtil.decode_utf16le(message.user)
           $stderr.puts user
-          #if auth(user)
-          #  env['REMOTE_USER'] = user
-          #else
-          #  return [401, {}, ["You are not authorized to see this page"]]
-          #end
+          env['REMOTE_USER'] = user
         end
       end
 
